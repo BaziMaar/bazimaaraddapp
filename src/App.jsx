@@ -5,6 +5,7 @@ import Result from './component/Result'
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Main from './component/Main';
 import vipHack from './component/vipHack';
+import Signup from './component/SignUp';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/result" exact Component={Result}></Route>
         <Route path="/hack" exact Component={Hack}></Route>
         <Route path='/vip' exact Component={vipHack}></Route>
+        <Route path='/signup' exact Component={Signup}></Route>
       </Routes>
     </Router>
       {/* <Home/> */}

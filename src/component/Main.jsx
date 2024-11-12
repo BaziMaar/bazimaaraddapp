@@ -1,13 +1,30 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { React, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
+import { auth } from './firebase';
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Main() {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const handleSubmit=async(e)=>{
+        e.preventDefault();
+        try{
+            await signInWithEmailAndPassword(auth,userName,password);
+            toast.success("User LoggedIn Successfully!", { position: 'top-center' });
+        }
+        catch(error){
+            console.log(error.message);
+            toast.error(error.message, { position: 'bottom-center' });
+
+        }
+    }
 
     return (
         <>
             <div className='bg-white h-screen flex flex-col p-4 overflow-x-hidden justify-center items-center'>
+                <ToastContainer/>
                 <div className='flex justify-center w-full'>
                     <h1 className='text-center text-4xl bg-[#E6E7FB] px-8 py-4 text-[#2331DF] font-bold rounded-2xl'>
                         Colour Trading Hack
@@ -26,7 +43,7 @@ function Main() {
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                         className="border-2 px-4 py-2 border-black rounded-full w-full"
-                        placeholder="Username"
+                        placeholder="Email"
                     />
                 </div>
 
@@ -48,7 +65,7 @@ function Main() {
 
                 {/* Login Button */}
                 <div className="mt-8">
-                    <button className='w-28 bg-[#0066b2] text-white h-10 border rounded-full mx-auto block'>
+                    <button className='w-28 bg-[#0066b2] text-white h-10 border rounded-full mx-auto block' onClick={handleSubmit}>
                         Login
                     </button>
                 </div>

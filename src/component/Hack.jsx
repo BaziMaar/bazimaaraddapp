@@ -46,13 +46,14 @@ function Hack() {
             customer_name: "Adarsh Ranoji",
             customer_mobile: "9694668873",
             customer_email: "customer@gmail.com",
-            redirect_url: "https://your-domain/wallet.php"
+            redirect_url: "https://peaceful-cheesecake-50562a.netlify.app/wallet.php"
         };
         console.log(`>>>>>>>>>>>postDara${JSON.stringify(postData)}`)
 
         try {
             const response = await axios.post('https://allapi.in/order/create', postData);
             const { data } = response;
+            console.log(data);
 
             if (data.status) {
                 setPaymentUrl(data.results.payment_url);

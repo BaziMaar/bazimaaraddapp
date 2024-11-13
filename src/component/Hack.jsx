@@ -33,6 +33,42 @@ function Hack() {
   const [isCongratsOpen,setIsCongratsOpen]=useState(false);
   const navigate=useNavigate();
 
+  const handlePayment = async () => {
+        setLoading(true);
+        setError(null);
+
+        const postData = {
+            token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
+            order_id: "ORDS073319032036",
+            txn_amount: 1,
+            txn_note: "Pay For PanMitra",
+            product_name: "Redmi Note 12 Pro",
+            customer_name: "Adarsh Ranoji",
+            customer_mobile: "9694668873",
+            customer_email: "customer@gmail.com",
+            redirect_url: "https://your-domain/wallet.php"
+        };
+        console.log(`>>>>>>>>>>>postDara${JSON.stringify(postData)}`)
+
+        try {
+            const response = await axios.post('https://allapi.in/order/create', postData);
+            const { data } = response;
+
+            if (data.status) {
+                setPaymentUrl(data.results.payment_url);
+                window.location.href = data.results.payment_url;  // Redirects to the payment page
+            } else {
+                setError(data.message || 'Order creation failed');
+            }
+        } catch (err) {
+            setError('An error occurred. Please try again later.');
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
   // Function to handle the order creation
   const handleCreateOrder = () => {
     const data = {
@@ -109,7 +145,7 @@ function Hack() {
 
         {/* Order creation button */}
         <button 
-          onClick={handleCreateOrder} 
+          onClick={handlePayment} 
           className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between"
           disabled={loading}
         >

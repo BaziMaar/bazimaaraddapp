@@ -59,9 +59,9 @@ function Main() {
                 </div>
 
                 {/* Forgot Password Link */}
-                <div className="mt-2">
-                    <p className='text-[#878787] text-center'>Forgot Password?</p>
-                </div>
+                <Link to="/signup" className="mt-2">
+                    <p className='text-[#878787] text-center'>Signup</p>
+                </Link>
 
                 {/* Login Button */}
                 <div className="mt-8">

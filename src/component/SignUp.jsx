@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from './firebase';
 import { setDoc, doc } from 'firebase/firestore';
 import { toast, ToastContainer } from 'react-toastify';
@@ -11,6 +11,12 @@ function Signup() {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const navigate=useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -30,6 +36,7 @@ function Signup() {
             });
 
             toast.success("User Registered Successfully!", { position: 'top-center' });
+            navigate("/")
 
         } catch (error) {
             console.log("Error creating user:", error.message);
@@ -76,19 +83,29 @@ function Signup() {
 
             {/* Password Input */}
             <div className="mt-6 w-full max-w-xs mx-auto">
+            <div className="relative">
                 <input
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="border-2 px-4 py-2 border-black rounded-full w-full"
                     placeholder="Password"
                 />
+                <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className="absolute right-3 top-2/4 transform -translate-y-2/4 text-gray-600 hover:text-black"
+                >
+                    {showPassword ? '👁️' : '🙈'}
+                </button>
             </div>
+        </div>
+
 
             {/* Forgot Password Link */}
-            <div className="mt-2">
-                <p className="text-[#878787] text-center">Forgot Password?</p>
-            </div>
+            <Link to="/" className="mt-2">
+                <p className="text-[#878787] text-center">Login</p>
+            </Link>
 
             {/* Register Button */}
             <div className="mt-8">
@@ -112,11 +129,11 @@ function Signup() {
             </div>
 
             {/* Continue Button */}
-            <Link to="/home" className="mt-12">
+            {/* <Link to="/home" className="mt-12">
                 <button className="w-96 bg-[#0066b2] text-white h-16 border rounded-md mx-auto block">
                     Continue
                 </button>
-            </Link>
+            </Link> */}
         </div>
     );
 }

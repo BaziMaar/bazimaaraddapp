@@ -93,7 +93,7 @@ function vipHack() {
           <div className='w-20 h-8 justify-end flex items-center'>
             <img src={free} alt="" />
           </div>
-          <h1 className='text-md px-2 text-[#B4D7FF] font-bold text-start'>You’re on FREE TIER</h1>
+          <h1 className='text-md px-2 text-[#B4D7FF] font-bold text-start'>You’re on VIP TIER</h1>
         </div>
         
         <h1 className='text-2xl px-8 text-[#2331DF] font-bold text-center'>Colour Trading Hack</h1>

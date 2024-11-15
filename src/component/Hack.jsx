@@ -51,7 +51,7 @@ function Hack() {
         console.log(`>>>>>>>>>>>postDara${JSON.stringify(postData)}`)
 
         try {
-            const response = await axios.post('https://cors-anywhere.herokuapp.com/https://allapi.in/order/create', postData);
+            const response = await axios.post('https://allapi.in/order/create', postData);
             const { data } = response;
             console.log(data);
 

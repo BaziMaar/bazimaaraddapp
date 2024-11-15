@@ -94,7 +94,7 @@ function Signup() {
                 <button
                     type="button"
                     onClick={togglePasswordVisibility}
-                    className="absolute right-3 top-2/4 transform -translate-y-2/4 text-gray-600 hover:text-black"
+                    className="absolute right-3 top-2/4 transform -translate-y-2/4 text-gray-600 hover:text-black" 
                 >
                     {showPassword ? '👁️' : '🙈'}
                 </button>

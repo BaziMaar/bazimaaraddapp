@@ -96,13 +96,13 @@ function Hack() {
     const postData = {
       token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
       order_id: num,
-      txn_amount: 10,
+      txn_amount: 1,
       txn_note: "Pay For Premium Subscription",
       product_name: "Premium Subscription",
       customer_name: localStorage.getItem('userName'),
       customer_mobile: "7878982321",
       customer_email: localStorage.getItem('userName'),
-      redirect_url: `https://localhost:5173/hack?order_id=${num}&status=success`
+      redirect_url: `https://colortradinghack.com/hack?order_id=${num}&status=success`
     };
 
     console.log(postData)

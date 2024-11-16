@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Main from './component/Main';
 import vipHack from './component/vipHack';
 import Signup from './component/SignUp';
+import UpiPayment from './component/UpiPayment';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/hack" exact Component={Hack}></Route>
         <Route path='/vip' exact Component={vipHack}></Route>
         <Route path='/signup' exact Component={Signup}></Route>
+        <Route path="/paymentUpi" exact Component={UpiPayment}></Route>
       </Routes>
     </Router>
       {/* <Home/> */}

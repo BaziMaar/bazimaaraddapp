@@ -14,13 +14,13 @@ function App() {
     <>
     <Router>
       <Routes>
-        <Route path="/home" exact Component={Home}></Route>
-        <Route path="/" exact Component={Main}></Route>
-        <Route path="/result" exact Component={Result}></Route>
+        <Route path="/home"  Component={Home}></Route>
+        <Route path="/"  Component={Main}></Route>
+        <Route path="/result"  Component={Result}></Route>
         <Route path="/hack" element={<Hack/>}></Route>
-        <Route path='/vip' exact Component={vipHack}></Route>
-        <Route path='/signup' exact Component={Signup}></Route>
-        <Route path="/paymentUpi" exact Component={UpiPayment}></Route>
+        <Route path='/vip'  Component={vipHack}></Route>
+        <Route path='/signup'  Component={Signup}></Route>
+        <Route path="/paymentUpi"  Component={UpiPayment}></Route>
       </Routes>
     </Router>
       {/* <Home/> */}

@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState,useEffect } from 'react';
 import { CgProfile, CgYoutube } from "react-icons/cg";
 import { FaTelegram, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { RiTelegramLine } from "react-icons/ri";
@@ -36,6 +36,10 @@ function Hack() {
   const [phonePayUrl,setPhonePayUrl]=useState("");
   const [gPayUrl,setgPayUrl]=useState("");
   const [bhimUrl,setbhimPayUrl]=useState("");
+  const [orderStatus, setOrderStatus] = useState(null); // For tracking payment status
+  const [isPaymentCompleted, setIsPaymentCompleted] = useState(false);
+  const [orderId, setOrderId] = useState(null); // Store the order ID
+
 
 
   const handlePayment = async () => {
@@ -125,10 +129,57 @@ function Hack() {
       setLoading(false);
     }
   };
+  const toggleUpiModal = () => {
+    setUpiModel(!upiModel);
+  };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+  const checkPaymentStatus = async () => {
+    if (orderId) {
+      console.log(`>>>>>>>>orderId`)
+      try {
+        const statusResponse = await axios.get('https://allapi.in/order/status', {
+          params: {
+            token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
+            order_id: orderId,
+          }
+        });
+        const { data } = statusResponse;
+        if (data.status) {
+          setOrderStatus(data.results); // Store the transaction details
+          setIsPaymentCompleted(true);
+          toast.success('Payment successful!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 5000,
+          });
+        } else {
+          setOrderStatus(null);
+          console.log("payment not done")
+          toast.error('Payment not completed yet.', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 5000,
+          });
+        }
+      } catch (err) {
+        console.log("Payment not checking")
+        toast.error('Error checking payment status.', {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 5000,
+        });
+      }
+    }
+  };
+  useEffect(() => {
+    if (orderId && !isPaymentCompleted) {
+      const interval = setInterval(() => {
+        checkPaymentStatus(); // Check the status every 10 seconds
+      }, 1000);
+
+      return () => clearInterval(interval); // Cleanup the interval on component unmount
+    }
+  }, [orderId, isPaymentCompleted]);
 
   return (
     <div className='bg-white h-screen flex flex-col p-4 overflow-x-hidden'>
@@ -323,7 +374,7 @@ function Hack() {
     <ToastContainer />
     <div className="relative border-2 border-[#c1272d] shadow-lg text-center bg-[#e1f5fe] p-8 rounded-2xl max-w-md w-full">
       <button
-        onClick={toggleModal}
+        onClick={toggleUpiModal}
         className="absolute top-4 right-4 bg-[#c1272d] text-white w-10 h-10 rounded-full font-bold text-xl"
       >
         X
@@ -364,6 +415,12 @@ function Hack() {
         <p>No money - No Accuracy</p>
       </div>
     </div>
+    {isPaymentCompleted && orderStatus && (
+        <div className="text-green-500 text-center mt-4">
+          <h2 className="text-xl font-bold">Payment Successful!</h2>
+          <p>Transaction Details: {JSON.stringify(orderStatus)}</p>
+        </div>
+      )}
   </div>
 )}
 

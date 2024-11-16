@@ -1,4 +1,4 @@
-import { React } from 'react'
+import { React,useState } from 'react'
 import { CgProfile, CgYoutube } from "react-icons/cg";
 import img1 from '../assets/img1.png'
 import img2 from '../assets/img2.png'
@@ -22,6 +22,19 @@ import { IoCheckmarkDoneCircle } from "react-icons/io5";
 
 
 function Result() {
+    const [number,setNumber]=useState("");
+    const [buttonClicked,setButtonClicked]=useState(false);
+    const [answer,setAnswer]=useState(0);
+    const handleButtonClick = () => {
+        const randomNumber = Math.floor(Math.random() * 11); // Generates a number between 0 and 10
+        setAnswer(randomNumber)
+        setButtonClicked(true);
+    };
+    
+    const handleResetClick = () => {
+        setNumber(""); // Clear input
+        setButtonClicked(false); // Reset state
+      };
   return (
     <>
       <div className='bg-white h-screen flex flex-col p-4 overflow-x-hidden'>
@@ -46,37 +59,45 @@ function Result() {
             <input
                 type="number"
                 id="textInput"
+                value={number}
+                onChange={(e)=>{setNumber(e.target.value)}}
                 placeholder="0000"
                 maxLength={4}                
                 className="w-16 px-2 py-0 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onInput={(e) => {
+                    if (e.target.value.length > 4) {
+                      e.target.value = e.target.value.slice(0, 4); // Limit input to 4 digits
+                    }
+                }}
             />
         </div>
         <div className='w-80% h-[0.05rem] bg-black'></div>
+        {number.length==4&&buttonClicked==false&&<div><button onClick={handleButtonClick} className="  text-xl font-bold mt-10 ml-32 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit</button></div>}
 
-        <div className='flex justify-center'>
+        {buttonClicked==true&&<div className='flex justify-center'>
             <img src={resultFound} alt="" className='md:h-16 w-fit'/>
-        </div>
+        </div>}
         
-        <div class="bg-contain bg-center bg-no-repeat h-screen" 
+        {buttonClicked&&<div class="bg-contain bg-center bg-no-repeat h-screen" 
              style={{ backgroundImage: `url(${res})` }}>
                 <div className='flex justify-center items-center flex-col gap-4 self-center h-full'>
                     <div className='flex items-center'>
-                        <div className='bg-red-600 rounded-full w-4 h-4'></div>
-                        <div className='text-xl font-bold px-1'>Red</div>
+                        <div   className={`rounded-full w-4 h-4 ${answer === 0 || answer === 5? "bg-purple-600": answer % 2 === 0? "bg-red-600": "bg-green-600"}`}></div>
+                        <div className='text-xl font-bold px-1'>{answer==0||answer==5?"purple":answer%2==0?"Red":"Green"}</div>
                     </div>
                     <div className='flex items-center'>
                         <IoCheckmarkDoneCircle className='text-green-600 rounded-full w-4 h-4'></IoCheckmarkDoneCircle>
-                        <div className='text-xl font-bold px-1'>Red</div>
+                        <div className='text-xl font-bold px-1'>{answer<5?"Small":"Big"}</div>
                     </div>
                     <div className='flex items-center'>
                         <IoCheckmarkDoneCircle className='text-green-600 rounded-full w-4 h-4'></IoCheckmarkDoneCircle>
-                        <div className='text-xl font-bold px-1'>Red</div>
+                        <div className='text-xl font-bold px-1'>{answer}</div>
                     </div>
                 </div>
-        </div>
+        </div>}
 
        <div className='flex flex-col gap-10 items-center'>
-            <img src={reset} alt="" className="h-24 w-fit" />
+            <img onClick={handleResetClick} src={reset} alt="" className="h-24 w-fit" />
             <img src={vid} alt="" className="h-24 w-fit" />
        </div>
        

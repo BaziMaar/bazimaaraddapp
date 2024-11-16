@@ -17,7 +17,7 @@ function App() {
         <Route path="/home" exact Component={Home}></Route>
         <Route path="/" exact Component={Main}></Route>
         <Route path="/result" exact Component={Result}></Route>
-        <Route path="/hack" exact Component={Hack}></Route>
+        <Route path="/hack" element={<Hack/>}></Route>
         <Route path='/vip' exact Component={vipHack}></Route>
         <Route path='/signup' exact Component={Signup}></Route>
         <Route path="/paymentUpi" exact Component={UpiPayment}></Route>

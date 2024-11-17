@@ -39,6 +39,7 @@ function Main() {
                         token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
                         order_id: orderId,
                     });
+                    console.log(statusResponse)
                     const { data } = statusResponse;
                     if (data.status) {
                         setOrderStatus(data.results); // Store the transaction details

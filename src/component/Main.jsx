@@ -41,7 +41,8 @@ function Main() {
             });
 
             const { data } = statusResponse;
-            if (data.status) {
+            if (data.status &&data.results.status=="Success") {
+                
                 setOrderStatus(data.results);
                 setIsPaymentCompleted(true);
 
@@ -50,6 +51,10 @@ function Main() {
 
                 // Check subscription status
                 const hasValidSubscription = await checkSubscription(email);
+                console.log(hasValidSubscription);
+                if(hasValidSubscription.data.message=="Valid subscription found."){
+                    alert("You have previously buy subscription please login for vip access")
+                }
                 if (!hasValidSubscription) {
                     // Call subscription API
                     await subscribeUser(orderId, email, data.results.txn_date, data.results.txn_amount);
@@ -84,7 +89,7 @@ function Main() {
                 txn_amount: txnAmount,
             });
             if (response.data) {
-                alert('Subscription Successful! Your subscription has been activated.');
+                alert('Subscription Successful! Your subscription has been activated.Login and Get vip access');
             }
         } catch (err) {
             console.error("Error subscribing user:", err);

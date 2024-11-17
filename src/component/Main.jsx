@@ -35,7 +35,7 @@ function Main() {
             // Function to check the payment status
             const checkPaymentStatus = async () => {
                 try {
-                    const statusResponse = await axios.post('https://paymentapibackend.onrender.com/api/order/create', {
+                    const statusResponse = await axios.post('https://paymentapibackend.onrender.com/api/order/status', {
                         token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
                         order_id: orderId,
                     });

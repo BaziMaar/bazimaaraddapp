@@ -52,7 +52,7 @@ function Main() {
                 // Check subscription status
                 const hasValidSubscription = await checkSubscription(email);
                 console.log(hasValidSubscription);
-                if(hasValidSubscription.data.message=="Valid subscription found."){
+                if(hasValidSubscription){
                     alert("You have previously buy subscription please login for vip access")
                 }
                 if (!hasValidSubscription) {

@@ -10,6 +10,7 @@ function Main() {
     const [showPassword, setShowPassword] = useState(false);
     const [orderStatus, setOrderStatus] = useState(null);
     const [isPaymentCompleted, setIsPaymentCompleted] = useState(false);
+    const [hadSubscription,setHadSubscription]=useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -45,6 +46,7 @@ function Main() {
                 
                 setOrderStatus(data.results);
                 setIsPaymentCompleted(true);
+                setHadSubscription(true);
 
                 // Notify user with native alert
                 alert('Payment Successful! Your payment has been processed successfully. Now checking subscription...');
@@ -106,12 +108,14 @@ function Main() {
 
         try {
             await signInWithEmailAndPassword(auth, userName, password);
-
+            const check=await checkSubscription(userName);
+            if(check){
+                navigate('/vip');
+            }
             alert('Login Successful! Welcome back!');
 
             localStorage.setItem('userName', userName);
             localStorage.setItem('password', password);
-
             navigate('/home');
         } catch (error) {
             console.error(error.message);

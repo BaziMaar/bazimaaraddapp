@@ -2,9 +2,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { React, useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { auth } from './firebase';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios'; // Import axios for API calls
+import axios from 'axios';
 
 function Main() {
     const [userName, setUserName] = useState('');
@@ -47,12 +45,8 @@ function Main() {
                 setOrderStatus(data.results);
                 setIsPaymentCompleted(true);
 
-                // Notify user
-                alert("Payment successful! Now checking subscription...");
-                toast.success('Payment successful!', {
-                    position: toast.POSITION.TOP_CENTER,
-                    autoClose: 5000,
-                });
+                // Notify user with native alert
+                alert('Payment Successful! Your payment has been processed successfully. Now checking subscription...');
 
                 // Check subscription status
                 const hasValidSubscription = await checkSubscription(email);
@@ -63,17 +57,11 @@ function Main() {
             } else {
                 setOrderStatus(null);
                 setIsPaymentCompleted(false);
-                toast.error('Payment not completed yet.', {
-                    position: toast.POSITION.TOP_CENTER,
-                    autoClose: 5000,
-                });
+                alert('Payment Not Completed! Please try again later.');
             }
         } catch (err) {
             console.error("Error checking payment status", err);
-            toast.error('Error checking payment status.', {
-                position: toast.POSITION.TOP_CENTER,
-                autoClose: 5000,
-            });
+            alert('An error occurred while checking payment status.');
         }
     };
 
@@ -96,17 +84,11 @@ function Main() {
                 txn_amount: txnAmount,
             });
             if (response.data) {
-                toast.success('Subscription created successfully!', {
-                    position: toast.POSITION.TOP_CENTER,
-                    autoClose: 5000,
-                });
+                alert('Subscription Successful! Your subscription has been activated.');
             }
         } catch (err) {
             console.error("Error subscribing user:", err);
-            toast.error('Error subscribing user.', {
-                position: toast.POSITION.TOP_CENTER,
-                autoClose: 5000,
-            });
+            alert('An error occurred while creating subscription.');
         }
     };
 
@@ -119,22 +101,22 @@ function Main() {
 
         try {
             await signInWithEmailAndPassword(auth, userName, password);
-            toast.success("User LoggedIn Successfully!", { position: 'top-center' });
+
+            alert('Login Successful! Welcome back!');
 
             localStorage.setItem('userName', userName);
             localStorage.setItem('password', password);
 
             navigate('/home');
         } catch (error) {
-            console.log(error.message);
-            toast.error(error.message, { position: 'bottom-center' });
+            console.error(error.message);
+            alert('Login Failed! ' + error.message);
         }
     };
 
     return (
         <>
             <div className='bg-white h-screen flex flex-col p-4 overflow-x-hidden justify-center items-center'>
-                <ToastContainer />
                 <h1 className='text-center text-4xl bg-[#E6E7FB] px-8 py-4 text-[#2331DF] font-bold rounded-2xl'>
                     Colour Trading Hack
                 </h1>

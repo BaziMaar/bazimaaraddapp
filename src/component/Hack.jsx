@@ -80,7 +80,7 @@ function Hack() {
 
     console.log(postData)
     try {
-      const response = await axios.post('https://paymentapibackend.onrender.com/api/order/create', postData);
+      const response = await axios.post('https://sattajodileak.com/payment/order/create', postData);
       const { data } = response;
       console.log(data)
       if (data.status) {

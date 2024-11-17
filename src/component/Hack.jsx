@@ -75,7 +75,7 @@ function Hack() {
       customer_name: localStorage.getItem('userName'),
       customer_mobile: "7878982321",
       customer_email: localStorage.getItem('userName'),
-      redirect_url: `https://colourtradinghack.com/hack?order_id=${num}&status=success&email=${localStorage.getItem('userName')}`
+      redirect_url: `https://colourtradinghack.com?order_id=${num}&status=success&email=${localStorage.getItem('userName')}`
     };
 
     console.log(postData)

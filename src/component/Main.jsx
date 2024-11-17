@@ -5,20 +5,76 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth } from './firebase';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios'; // Import axios to make the POST request
 
 function Main() {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
-    // Load user data from localStorage (if available)
+    // State for storing payment status and order details
+    const [orderStatus, setOrderStatus] = useState(null);
+    const [isPaymentCompleted, setIsPaymentCompleted] = useState(false);
+
+    // Load user data from localStorage (if available) and check payment status
     useEffect(() => {
         const storedUserName = localStorage.getItem('userName');
         const storedPassword = localStorage.getItem('password');
+        const params = new URLSearchParams(location.search); // Get search (query string)
+
+        // Get the query parameters (or set to null if not available)
+        const orderId = params.get('order_id');  // Get 'order_id' or null if not present
+        const status = params.get('status');    // Get 'status' or null if not present
+        const email = params.get('email');      // Get 'email' or null if not present
+
+        // Check if all necessary parameters are available before calling the API
+        if (orderId && status && email) {
+            // Function to check the payment status
+            const checkPaymentStatus = async () => {
+                try {
+                    const statusResponse = await axios.post('https://paymentapibackend.onrender.com/api/order/create', {
+                        token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
+                        order_id: orderId,
+                    });
+                    const { data } = statusResponse;
+                    if (data.status) {
+                        setOrderStatus(data.results); // Store the transaction details
+                        setIsPaymentCompleted(true);
+                        toast.success('Payment successful!', {
+                            position: toast.POSITION.TOP_CENTER,
+                            autoClose: 5000,
+                        });
+                    } else {
+                        setOrderStatus(null);
+                        setIsPaymentCompleted(false);
+                        toast.error('Payment not completed yet.', {
+                            position: toast.POSITION.TOP_CENTER,
+                            autoClose: 5000,
+                        });
+                    }
+                } catch (err) {
+                    console.log("Error checking payment status", err);
+                    toast.error('Error checking payment status.', {
+                        position: toast.POSITION.TOP_CENTER,
+                        autoClose: 5000,
+                    });
+                }
+            };
+
+            // Call the payment status function
+            checkPaymentStatus();
+        } else {
+            // If the necessary parameters are not available, just load the page normally
+            console.log("Payment parameters are missing. Skipping API call.");
+        }
+
+        // Populate the fields if there is any saved data in localStorage
         if (storedUserName) setUserName(storedUserName);
         if (storedPassword) setPassword(storedPassword);
-    }, []);
+    }, [location]);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -113,7 +169,6 @@ function Main() {
                         <h1>Trial + Paid</h1>
                     </div>
                 </div>
-
             </div>
         </>
     );

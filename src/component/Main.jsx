@@ -109,14 +109,20 @@ function Main() {
         try {
             await signInWithEmailAndPassword(auth, userName, password);
             const check=await checkSubscription(userName);
+            console.log(`>>>>>>checking>>>>>${check}`);
             if(check){
+                alert('Login Successful! Welcome VIP user back!');
                 navigate('/vip');
             }
-            alert('Login Successful! Welcome back!');
+            else{
+                alert('Login Successful! Welcome back!');
+                navigate('/home');
+            }
+            
 
             localStorage.setItem('userName', userName);
             localStorage.setItem('password', password);
-            navigate('/home');
+            
         } catch (error) {
             console.error(error.message);
             alert('Login Failed! ' + error.message);

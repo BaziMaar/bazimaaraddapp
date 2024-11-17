@@ -45,56 +45,10 @@ function vipHack() {
   const [success, setSuccess] = useState(null);
   const [paymentUrl, setPaymentUrl] = useState(null);
   const [upiLinks, setUpiLinks] = useState(null);
-  const [isCongratsOpen,setIsCongratsOpen]=useState(true);
+  const [isCongratsOpen,setIsCongratsOpen]=useState(false);
 
   // Function to handle the order creation
-  const handleCreateOrder = () => {
-    const data = {
-      key: "a951c329-2895-44a6-8950-b7a28766762d",
-      client_txn_id: "9694668873",
-      amount: "100",
-      p_info: "Product Name",
-      customer_name: "Jon Doe",
-      customer_email: "jondoe@gmail.com",
-      customer_mobile: "9694668873",
-      redirect_url: "http://google.com",
-      udf1: "user defined field 1 (max 25 char)",
-      udf2: "user defined field 2 (max 25 char)",
-      udf3: "user defined field 3 (max 25 char)"
-    };
-
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
-    setPaymentUrl(null);
-    setUpiLinks(null);
-
-
-    // Call the API to create an order
-    axios.post('http://localhost:5000/api/create_order', data)
-      .then(response => {
-        const responseData = response.data;
-
-        // Check if the order was created successfully
-        if (responseData.status === true) {
-          setSuccess(responseData.msg); // "Order Created"
-          setPaymentUrl(responseData.data.payment_url);
-          setUpiLinks(responseData.data.upi_intent);
-
-          // Redirect the user to the payment page (optional)
-          window.location.href = responseData.data.payment_url;
-        } else {
-          setError('Failed to create order');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setError('Failed to create order');
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+ 
   const toggleModal=()=>{
     setIsModalOpen(!isModalOpen);
   }
@@ -122,17 +76,7 @@ function vipHack() {
         </Link>
 
         {/* Order creation button */}
-        <button 
-          onClick={handleCreateOrder} 
-          className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between"
-          disabled={loading} // Disable the button when loading
-        >
-          <div className="flex items-center">
-            <img src={img3} alt="" className="h-12 w-12" />
-            <h1 className="px-4">Trianga Hack</h1>
-          </div>
-          <img src={vip} alt="" className="h-8 w-8" />
-        </button>
+
 
         {/* Other hacks */}
         <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">

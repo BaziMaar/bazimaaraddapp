@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/result" element={<Result />} />
           <Route path="/hack" element={<Hack />} />
-          <Route path="/vip" element={<vipHack />} />
+          <Route path="/vip" Component={vipHack } />
           <Route path="/signup" element={<Signup />} />
           <Route path="/paymentUpi" element={<UpiPayment />} />
         </Routes>

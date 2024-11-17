@@ -24,6 +24,21 @@ import upiSvg from '../assets/upi.webp';
 import UpiCongrats from '../assets/upiCongrats.png';
 import congratsLogo from '../assets/congratsLogo-removebg-preview.png';
 import vipLogo from '../assets/vipLogo.png';
+import Lottery from  '/public/66Lottery Logo.png'
+import Daman from '/public/Daman Game Logo.png'
+import DiuWin from '/public/DiuWin Hack New Logo.png'
+import Raja from '/public/Raja Luck Logo.png'
+import Big from '/public/Bigdaddygame logo.png'
+import Lot from '/public/lottery7.png'
+import Ok from '/public/okwin logo.png'
+import Goa from '/public/goa game.png'
+import Eight from '/public/82 Lottery.png'
+import Sikkim from '/public/sikkim game logo.png'
+import KWG from '/public/kwg logo.png'
+import In from '/public/in999 logo.png'
+import Five from '/public/55club logo.png'
+import One from '/public/51game.png'
+import Bharat from '/public/Bharat-Club-new-logo.png'
 
 function Hack() {
   const [loading, setLoading] = useState(false);
@@ -60,7 +75,7 @@ function Hack() {
       customer_name: localStorage.getItem('userName'),
       customer_mobile: "7878982321",
       customer_email: localStorage.getItem('userName'),
-      redirect_url: `https://colourtradinghack.com/hack?order_id=${num}&status=success`
+      redirect_url: `https://colourtradinghack.com/hack?order_id=${num}&status=success&email=${localStorage.getItem('userName')}`
     };
 
     console.log(postData)
@@ -221,90 +236,125 @@ function Hack() {
       </button>
 
       {/* Other hacks */}
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      <div onClick={toggleModal} className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={img4} alt="Hack 3" className="h-12 w-12" />
           <h1 className="px-4">91Club Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={img2} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">TC Lottery Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      < div onClick={toggleModal} className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img4} alt="Hack 3" className="h-12 w-12" />
-          <h1 className="px-4">91Club Hack</h1>
+          <img src={Lottery} alt="Hack 3" className="h-12 w-12" />
+          <h1 className="px-4">66 Lottery Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img2} alt="Hack 4" className="h-12 w-12" />
-          <h1 className="px-4">TC Lottery Hack</h1>
+          <img src={Daman} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">Daman Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img4} alt="Hack 3" className="h-12 w-12" />
-          <h1 className="px-4">91Club Hack</h1>
+          <img src={DiuWin} alt="Hack 3" className="h-12 w-12" />
+          <h1 className="px-4">Diu Win Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img2} alt="Hack 4" className="h-12 w-12" />
-          <h1 className="px-4">TC Lottery Hack</h1>
+          <img src={Raja} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">Raja Luck Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img4} alt="Hack 3" className="h-12 w-12" />
-          <h1 className="px-4">91Club Hack</h1>
+          <img src={Big} alt="Hack 3" className="h-12 w-12" />
+          <h1 className="px-4">Big Daddy Game Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img2} alt="Hack 4" className="h-12 w-12" />
-          <h1 className="px-4">TC Lottery Hack</h1>
+          <img src={Lot} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">Lottery 7 Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img4} alt="Hack 3" className="h-12 w-12" />
-          <h1 className="px-4">91Club Hack</h1>
+          <img src={Ok} alt="Hack 3" className="h-12 w-12" />
+          <h1 className="px-4">OKWin Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img2} alt="Hack 4" className="h-12 w-12" />
-          <h1 className="px-4">TC Lottery Hack</h1>
+          <img src={Goa} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">Goa Game Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img4} alt="Hack 3" className="h-12 w-12" />
-          <h1 className="px-4">91Club Hack</h1>
+          <img src={Eight} alt="Hack 3" className="h-12 w-12" />
+          <h1 className="px-4">82 Lottery Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
-      <Link to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={img2} alt="Hack 4" className="h-12 w-12" />
-          <h1 className="px-4">TC Lottery Hack</h1>
+          <img src={Sikkim} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">Sikkim Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
-      </Link>
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+        <div className="flex items-center">
+          <img src={KWG} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">KWG Hack</h1>
+        </div>
+        <img src={vip} alt="VIP" className="h-8 w-8" />
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+        <div className="flex items-center">
+          <img src={In} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">IN999 Hack</h1>
+        </div>
+        <img src={vip} alt="VIP" className="h-8 w-8" />
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+        <div className="flex items-center">
+          <img src={Five} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">55 Club Hack</h1>
+        </div>
+        <img src={vip} alt="VIP" className="h-8 w-8" />
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+        <div className="flex items-center">
+          <img src={One} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">51 Club Hack</h1>
+        </div>
+        <img src={vip} alt="VIP" className="h-8 w-8" />
+      </div>
+      <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+        <div className="flex items-center">
+          <img src={Bharat} alt="Hack 4" className="h-12 w-12" />
+          <h1 className="px-4">Bharat Club Hack</h1>
+        </div>
+        <img src={vip} alt="VIP" className="h-8 w-8" />
+      </div>
 
 
       {/* VIP Mode access */}

@@ -73,11 +73,6 @@ function vipHack() {
           <img src={Bazimaar} alt="" className='h-12 w-12 rounded-full '/>
           <h1 className='px-4'>BaziMaar Hack</h1>
         </Link>
-
-        {/* Order creation button */}
-
-
-        {/* Other hacks */}
         <Link to="/result?name=91 Club Hack&url=https://91club.bet/#/register?invitationCode=87134963862" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
           <div className="flex items-center">
             <img src={img4} alt="" className="h-12 w-12" />
@@ -183,7 +178,7 @@ function vipHack() {
 
         {/* VIP Mode access */}
         <div className='items-center  '>
-            <img src={vipLogo} alt="vip Logo" className='mr-6 w-5/6 mx-6 m-2 rounded-lg'/>
+            <img src={vipLogo} alt="vip Logo" className='mr-6 w-3/5 mx-16 m-2 rounded-lg'/>
         </div>
 
         {/* Social Media Icons */}

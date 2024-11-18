@@ -40,6 +40,7 @@ import Five from '/public/55club logo.png'
 import One from '/public/51game.png'
 import Bharat from '/public/Bharat-Club-new-logo.png'
 import AccessVIP from '../assets/accessVip.png'
+import Bazimaar from '/public/BaziMaarIcon.png'
 
 function Hack() {
   const [loading, setLoading] = useState(false);
@@ -162,17 +163,12 @@ function Hack() {
       </div>
 
       <h1 className='text-2xl px-8 text-[#2331DF] font-bold text-center'>Colour Trading Hack</h1>
-
-      {/* Link for the first hack */}
-      <Link to="/result" className='text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center relative'>
-        <img src={freeTag} alt="Free Tag" className='h-8 w-8 absolute -mt-8 -ml-6'/>
-        <img src={img1} alt="Hack 1" className='h-12 w-12'/>
-        <h1 className='px-4'>BaziMaar Hack</h1>
+      <Link to="/result?name=Bazimaar Hack&url=https://bazimaargames.com/login" className='text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center relative'>
+          <img src={Bazimaar} alt="" className='h-12 w-12 rounded-full '/>
+          <h1 className='px-4'>BaziMaar Hack</h1>
       </Link>
-
-      {/* Order creation button */}
       <button 
-        onClick={handlePayment} 
+        onClick={toggleModal} 
         className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between"
         disabled={loading}
       >

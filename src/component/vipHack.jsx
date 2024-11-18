@@ -38,6 +38,7 @@ import In from '/public/in999 logo.png'
 import Five from '/public/55club logo.png'
 import One from '/public/51game.png'
 import Bharat from '/public/Bharat-Club-new-logo.png'
+import Bazimaar from "/public/BaziMaarIcon.png"
 
 function vipHack() {
   const [loading, setLoading] = useState(false);
@@ -60,18 +61,15 @@ function vipHack() {
     <>
       <div className='bg-white h-screen flex flex-col p-4 overflow-x-hidden'>
         <div className='flex justify-center w-full items-center py-2'>
-          <div className='w-20 h-8 justify-end flex items-center'>
-            <img src={free} alt="" />
-          </div>
+
           <h1 className='text-md px-2 text-[#B4D7FF] font-bold text-start'>You’re on VIP TIER</h1>
         </div>
         
         <h1 className='text-2xl px-8 text-[#2331DF] font-bold text-center'>Colour Trading Hack</h1>
         
         {/* Link for the first hack */}
-        <Link to="/result?name=Bazimaaar Hack" className='text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center relative'>
-          <img src={freeTag} alt="" className='h-8 w-8 absolute -mt-8 -ml-6'/>
-          <img src={img1} alt="" className='h-12 w-12'/>
+        <Link to="/result?name=Bazimaar Hack" className='text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center relative'>
+          <img src={Bazimaar} alt="" className='h-12 w-12 rounded-full '/>
           <h1 className='px-4'>BaziMaar Hack</h1>
         </Link>
 
@@ -84,119 +82,102 @@ function vipHack() {
             <img src={img4} alt="" className="h-12 w-12" />
             <h1 className="px-4">91Club Hack</h1>
           </div>
-          <img src={vip} alt="" className="h-8 w-8" />
         </Link>
         <Link to="/result?name=TC Lottery Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
           <div className="flex items-center">
             <img src={img2} alt="" className="h-12 w-12" />
             <h1 className="px-4">TC Lottery Hack</h1>
           </div>
-          <img src={vip} alt="" className="h-8 w-8" />
         </Link>
         < Link to="/result?name=66 Lottery Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Lottery} alt="Hack 3" className="h-12 w-12" />
           <h1 className="px-4">66 Lottery Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link  to="/result?name=Daman Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Daman} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">Daman Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=Diu Win Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={DiuWin} alt="Hack 3" className="h-12 w-12" />
           <h1 className="px-4">Diu Win Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link  to="/result?name=Raja Luck Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Raja} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">Raja Luck Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=Big Daddy Game Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Big} alt="Hack 3" className="h-12 w-12" />
           <h1 className="px-4">Big Daddy Game Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=Hack 4" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Lot} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">Lottery 7 Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=OKWin Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Ok} alt="Hack 3" className="h-12 w-12" />
           <h1 className="px-4">OKWin Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=Goa Game Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Goa} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">Goa Game Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=82 Lottery Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Eight} alt="Hack 3" className="h-12 w-12" />
           <h1 className="px-4">82 Lottery Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=Sikkim Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Sikkim} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">Sikkim Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=KWG Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={KWG} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">KWG Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=IN999 Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={In} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">IN999 Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=55 Club Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Five} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">55 Club Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link  to="/result?name=51 Club Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={One} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">51 Club Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
       <Link to="/result?name=Bharat Club Hack" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={Bharat} alt="Hack 4" className="h-12 w-12" />
           <h1 className="px-4">Bharat Club Hack</h1>
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
       </Link>
 
         {/* VIP Mode access */}

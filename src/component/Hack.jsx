@@ -100,59 +100,6 @@ function Hack() {
       setLoading(false);
     }
   };
-  const handlePaymentUpi = async () => {
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
-    
-
-    // Generate unique order ID
-    const num = Date.now() + Math.floor(Math.random() * 1000);
-    const postData = {
-      token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
-      order_id: num,
-      txn_amount: 100,
-      txn_note: "Pay For Premium Subscription",
-      product_name: "Premium Subscription",
-      customer_name: localStorage.getItem('userName'),
-      customer_mobile: "7878982321",
-      customer_email: localStorage.getItem('userName'),
-      redirect_url: `https://colortradinghack.com/hack?order_id=${num}&status=success`
-    };
-
-    (postData)
-    try {
-      const response = await axios.post('https://paymentapibackend.onrender.com/api/order/create', postData);
-      const { data } = response;
-      (data)
-      if (data.status) {
-        navigate('/paymentUpi',{
-          state:{
-            orderId:postData.order_id,
-            token:postData.token,
-            transaction:data.results
-          }
-        })
-        setPaytmUrl(data.results.upi_intent.paytm)
-        setPhonePayUrl(data.results.upi_intent.phonepe)
-        setgPayUrl(data.results.upi_intent.gpay)
-        setbhimPayUrl(data.results.upi_intent.bhim)
-        // setPaymentUrl(data.results.payment_url);
-        // window.location.href = data.results.payment_url;  // Redirect to the payment page
-      } else {
-        setError(data.message || 'Order creation failed');
-      }
-    } catch (err) {
-      toast.error('Server not working, please try after 1 minute.', {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 5000, // Duration in milliseconds (5 seconds)
-      });
-      setError('An error occurred. Please try again later.');
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
   const toggleUpiModal = () => {
     setUpiModel(!upiModel);
   };

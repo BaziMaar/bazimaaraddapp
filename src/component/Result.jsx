@@ -50,10 +50,13 @@ function Result() {
     const today = new Date();
     const formattedDate = today.toISOString().slice(0, 10).replace(/-/g, '');
     console.log(formattedDate); // Output: 20241118
+    const [link,setLink]=useState('');
 
     useEffect(()=>{
         const params = new URLSearchParams(location.search);
         const names=params.get("name")
+        const links=params.get("url")
+        setLink(links)
         setName(names)
     })
     
@@ -174,10 +177,82 @@ function Result() {
       </div>
     )
   }
+  {
+  name === "Goa Game Hack" && (
+    <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+      <img src={Goa} alt="Hack 4" className="h-12 w-12" />
+      <h1 className="px-4">Goa Game Hack</h1>
+    </div>
+  )
+}
+
+{
+  name === "82 Lottery Hack" && (
+    <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+      <img src={Eight} alt="Hack 3" className="h-12 w-12" />
+      <h1 className="px-4">82 Lottery Hack</h1>
+    </div>
+  )
+}
+
+{
+  name === "Sikkim Hack" && (
+    <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+      <img src={Sikkim} alt="Hack 4" className="h-12 w-12" />
+      <h1 className="px-4">Sikkim Hack</h1>
+    </div>
+  )
+}
+
+{
+  name === "KWG Hack" && (
+    <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+      <img src={KWG} alt="Hack 4" className="h-12 w-12" />
+      <h1 className="px-4">KWG Hack</h1>
+    </div>
+  )
+}
+
+{
+  name === "IN999 Hack" && (
+    <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+      <img src={In} alt="Hack 4" className="h-12 w-12" />
+      <h1 className="px-4">IN999 Hack</h1>
+    </div>
+  )
+}
+
+{
+  name === "55 Club Hack" && (
+    <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+      <img src={Five} alt="Hack 4" className="h-12 w-12" />
+      <h1 className="px-4">55 Club Hack</h1>
+    </div>
+  )
+}
+
+{
+  name === "51 Club Hack" && (
+    <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+      <img src={One} alt="Hack 4" className="h-12 w-12" />
+      <h1 className="px-4">51 Game Hack</h1>
+    </div>
+  )
+}
+
+{
+  name === "Bharat Club Hack" && (
+    <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+      <img src={Bharat} alt="Hack 4" className="h-12 w-12" />
+      <h1 className="px-4">Bharat Club Hack</h1>
+    </div>
+  )
+}
+
 
         <div className='flex px-4 justify-center'>
             <h1>Don't have {name},</h1>
-            <h1 className='text-[#C1272D] cursor-pointer'>Sign Up Now</h1>
+            <a href={link}><h1 className='text-[#C1272D] cursor-pointer'>Sign Up Now</h1></a>
         </div>
         <div className='flex px-4 mt-4 text-lg font-bold justify-center'>
             <h1 className='text-[#2331DF]'>Enter last </h1>

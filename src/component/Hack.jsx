@@ -39,6 +39,7 @@ import In from '/public/in999 logo.png'
 import Five from '/public/55club logo.png'
 import One from '/public/51game.png'
 import Bharat from '/public/Bharat-Club-new-logo.png'
+import AccessVIP from '../assets/accessVip.png'
 
 function Hack() {
   const [loading, setLoading] = useState(false);
@@ -220,7 +221,7 @@ function Hack() {
       </div>
       <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={Raja} alt="Hack 4" className="h-12 w-12" />
+          <img src={Raja} alt="Hack 4" className="h-12 w-12 rounded-full" />
           <h1 className="px-4">Raja Luck Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
@@ -291,7 +292,7 @@ function Hack() {
       <div onClick={toggleModal} to="/result" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <img src={One} alt="Hack 4" className="h-12 w-12" />
-          <h1 className="px-4">51 Club Hack</h1>
+          <h1 className="px-4">51 Game Hack</h1>
         </div>
         <img src={vip} alt="VIP" className="h-8 w-8" />
       </div>
@@ -308,8 +309,9 @@ function Hack() {
       <div onClick={toggleModal} className="text-2xl bg-red-600 px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
         <div className="flex items-center">
           <h1 className="px-4">Access VIP Mode</h1>
+          
         </div>
-        <img src={vip} alt="VIP" className="h-8 w-8" />
+        <img src={AccessVIP} className='w-10'/>
       </div>
 
       {/* Social Media Icons */}

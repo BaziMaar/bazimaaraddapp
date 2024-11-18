@@ -51,7 +51,6 @@ function Result() {
         const params = new URLSearchParams(location.search);
         const names=params.get("name")
         setName(names)
-        (name)
     })
     
     const handleButtonClick = () => {

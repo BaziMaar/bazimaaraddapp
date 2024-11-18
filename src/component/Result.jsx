@@ -47,6 +47,10 @@ function Result() {
     const [answer,setAnswer]=useState(0);
     const [name,setName]=useState('');
     const location=useLocation()
+    const today = new Date();
+    const formattedDate = today.toISOString().slice(0, 10).replace(/-/g, '');
+    console.log(formattedDate); // Output: 20241118
+
     useEffect(()=>{
         const params = new URLSearchParams(location.search);
         const names=params.get("name")
@@ -183,7 +187,7 @@ function Result() {
 
 
         <div className='flex px-4 mt-4 text-lg font-bold justify-center'>
-            <h1 className='text-black px-2 py-2'>2024100789849</h1>
+            <h1 className='text-black px-2 py-2'>{formattedDate}*****</h1>
             <input
                 type="number"
                 id="textInput"
@@ -194,19 +198,19 @@ function Result() {
                 className="w-16 px-2 py-0 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 onInput={(e) => {
                     if (e.target.value.length > 4) {
-                      e.target.value = e.target.value.slice(0, 4); // Limit input to 4 digits
+                      e.target.value = e.target.value.slice(0, 4);
                     }
                 }}
             />
         </div>
-        <div className='w-80% h-[0.05rem] bg-black'></div>
-        {number.length==4&&buttonClicked==false&&<div><button onClick={handleButtonClick} className="  text-xl font-bold mt-10 ml-32 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit</button></div>}
+        <div className='w-80% h-[0.05rem] mt-2 bg-black'></div>
+        {number.length==4&&buttonClicked==false&&<div><button onClick={handleButtonClick} className="  text-xl font-bold mt-2 ml-28 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit</button></div>}
 
-        {buttonClicked==true&&<div className='flex justify-center'>
+        {buttonClicked==true&&<div className='flex justify-center mt-4'>
             <img src={resultFound} alt="" className='md:h-16 w-fit'/>
         </div>}
         
-        {buttonClicked&&<div class="bg-contain bg-center bg-no-repeat h-screen" 
+        {buttonClicked&&<div class="bg-contain bg-center bg-no-repeat h-screen mt-2" 
              style={{ backgroundImage: `url(${res})` }}>
                 <div className='flex justify-center items-center flex-col gap-4 self-center h-full'>
                     <div className='flex items-center'>
@@ -224,7 +228,7 @@ function Result() {
                 </div>
         </div>}
 
-       <div className='flex flex-col gap-10 items-center'>
+       <div className='flex flex-col gap-10 items-center w-24 ml-28'>
             <img onClick={handleResetClick} src={reset} alt="" className="h-24 w-fit" />
             <img src={vid} alt="" className="h-24 w-fit" />
        </div>

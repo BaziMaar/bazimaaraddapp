@@ -1,4 +1,4 @@
-import { React,useState } from 'react'
+import { React,useEffect,useState } from 'react'
 import { CgProfile, CgYoutube } from "react-icons/cg";
 import img1 from '../assets/img1.png'
 import img2 from '../assets/img2.png'
@@ -19,12 +19,41 @@ import { FaTelegram, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { RiTelegramLine } from "react-icons/ri";
 import { CiYoutube } from "react-icons/ci";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
+import UpiCongrats from '../assets/upiCongrats.png'
+import congratsLogo from '../assets/congratsLogo-removebg-preview.png'
+import vipLogo from '../assets/vipLogo.png'
+import Lottery from  '/public/66Lottery Logo.png'
+import Daman from '/public/Daman Game Logo.png'
+import DiuWin from '/public/DiuWin Hack New Logo.png'
+import Raja from '/public/Raja Luck Logo.png'
+import Big from '/public/Bigdaddygame logo.png'
+import Lot from '/public/lottery7.png'
+import Ok from '/public/okwin logo.png'
+import Goa from '/public/goa game.png'
+import Eight from '/public/82 Lottery.png'
+import Sikkim from '/public/sikkim game logo.png'
+import KWG from '/public/kwg logo.png'
+import In from '/public/in999 logo.png'
+import Five from '/public/55club logo.png'
+import One from '/public/51game.png'
+import Bharat from '/public/Bharat-Club-new-logo.png'
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function Result() {
     const [number,setNumber]=useState("");
     const [buttonClicked,setButtonClicked]=useState(false);
     const [answer,setAnswer]=useState(0);
+    const [name,setName]=useState('');
+    const location=useLocation()
+    useEffect(()=>{
+        const params = new URLSearchParams(location.search);
+        const names=params.get("name")
+        setName(names)
+        (name)
+    })
+    
     const handleButtonClick = () => {
         const randomNumber = Math.floor(Math.random() * 11); // Generates a number between 0 and 10
         setAnswer(randomNumber)
@@ -38,13 +67,113 @@ function Result() {
   return (
     <>
       <div className='bg-white h-screen flex flex-col p-4 overflow-x-hidden'>
+  {
+    name == "Bazimaar Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={img1} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Bazimaar Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "91 Club Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={img4} alt="" className="h-12 w-12" />
+        <h1 className="px-4">91 Club Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "TC Lottery Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={img2} alt="" className="h-12 w-12" />
+        <h1 className="px-4">TC Lottery Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "66 Lottery Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={Lottery} alt="" className="h-12 w-12" />
+        <h1 className="px-4">66 Lottery Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "Daman Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={Daman} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Daman Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "Diu Win Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={DiuWin} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Diu Win Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "Raja Luck Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={Raja} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Raja Luck Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "Big Daddy Game Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={Big} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Big Daddy Game Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "OKWin Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={Ok} alt="" className="h-12 w-12" />
+        <h1 className="px-4">OKWin Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "Empire Win Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={Empire} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Empire Win Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "Super Game Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={SuperGame} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Super Game Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "Elite Bet Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={EliteBet} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Elite Bet Hack</h1>
+      </div>
+    )
+  }
+  {
+    name == "Golden Club Hack" && (
+      <div className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center">
+        <img src={GoldenClub} alt="" className="h-12 w-12" />
+        <h1 className="px-4">Golden Club Hack</h1>
+      </div>
+    )
+  }
 
-        <div className='text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center'>
-            <img src={img1} alt="" className='h-12 w-12'/>
-            <h1 className='px-4'>BaziMaar Hack</h1>
-        </div>
         <div className='flex px-4 justify-center'>
-            <h1>Don't have trianga id,</h1>
+            <h1>Don't have {name},</h1>
             <h1 className='text-[#C1272D] cursor-pointer'>Sign Up Now</h1>
         </div>
         <div className='flex px-4 mt-4 text-lg font-bold justify-center'>

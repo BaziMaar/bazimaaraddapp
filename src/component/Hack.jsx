@@ -69,7 +69,7 @@ function Hack() {
     const postData = {
       token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
       order_id: num,
-      txn_amount: 1,
+      txn_amount: 650,
       txn_note: "Pay For Premium Subscription",
       product_name: "Premium Subscription",
       customer_name: localStorage.getItem('userName'),
@@ -78,11 +78,11 @@ function Hack() {
       redirect_url: `https://colourtradinghack.com?order_id=${num}&status=success&email=${localStorage.getItem('userName')}`
     };
 
-    console.log(postData)
+    (postData)
     try {
       const response = await axios.post('https://sattajodileak.com/payment/order/create', postData);
       const { data } = response;
-      console.log(data)
+      (data)
       if (data.status) {
         setPaymentUrl(data.results.payment_url);
         window.location.href = data.results.payment_url;  // Redirect to the payment page
@@ -120,11 +120,11 @@ function Hack() {
       redirect_url: `https://colortradinghack.com/hack?order_id=${num}&status=success`
     };
 
-    console.log(postData)
+    (postData)
     try {
       const response = await axios.post('https://paymentapibackend.onrender.com/api/order/create', postData);
       const { data } = response;
-      console.log(data)
+      (data)
       if (data.status) {
         navigate('/paymentUpi',{
           state:{
@@ -163,7 +163,7 @@ function Hack() {
   const checkPaymentStatus = async () => {
     if (orderId) {
       alert(orderId)
-      console.log(`>>>>>>>>orderId`)
+      (`>>>>>>>>orderId`)
       try {
         const statusResponse = await axios.post('https://paymentapibackend.onrender.com/api/order/create', {
             token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
@@ -179,14 +179,14 @@ function Hack() {
           });
         } else {
           setOrderStatus(null);
-          console.log("payment not done")
+          ("payment not done")
           toast.error('Payment not completed yet.', {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 5000,
           });
         }
       } catch (err) {
-        console.log("Payment not checking")
+        ("Payment not checking")
         toast.error('Error checking payment status.', {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 5000,
@@ -196,7 +196,7 @@ function Hack() {
   };
   useEffect(() => {
     if (orderId && !isPaymentCompleted) {
-      console.log(`>>>>>>>orderId is >>>>>>>${orderId}`)
+      (`>>>>>>>orderId is >>>>>>>${orderId}`)
       const interval = setInterval(() => {
         checkPaymentStatus(); // Check the status every 10 seconds
       }, 1000);

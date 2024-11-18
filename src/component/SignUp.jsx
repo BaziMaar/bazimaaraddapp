@@ -27,7 +27,7 @@ function Signup() {
 
             // Update display name in Firebase Auth
             await updateProfile(user, { displayName: userName });
-            console.log("User created:", user);
+            ("User created:", user);
 
             // Add user data to Firestore
             await setDoc(doc(db, "Users", user.uid), {
@@ -39,7 +39,7 @@ function Signup() {
             navigate("/")
 
         } catch (error) {
-            console.log("Error creating user:", error.message);
+            ("Error creating user:", error.message);
             toast.error(error.message, { position: 'bottom-center' });
         }
     };

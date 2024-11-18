@@ -27,7 +27,7 @@ function Main() {
         if (orderId && status && email) {
             checkPaymentStatus(orderId, email);
         } else {
-            console.log("Payment parameters are missing. Skipping API call.");
+            ("Payment parameters are missing. Skipping API call.");
         }
 
         if (storedUserName) setUserName(storedUserName);
@@ -53,7 +53,7 @@ function Main() {
 
                 // Check subscription status
                 const hasValidSubscription = await checkSubscription(email);
-                console.log(hasValidSubscription);
+                (hasValidSubscription);
                 if(hasValidSubscription){
                     alert("You have previously buy subscription please login for vip access")
                 }
@@ -109,7 +109,7 @@ function Main() {
         try {
             await signInWithEmailAndPassword(auth, userName, password);
             const check=await checkSubscription(userName);
-            console.log(`>>>>>>checking>>>>>${check}`);
+            (`>>>>>>checking>>>>>${check}`);
             if(check){
                 alert('Login Successful! Welcome VIP user back!');
                 navigate('/vip');

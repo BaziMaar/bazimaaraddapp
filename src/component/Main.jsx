@@ -9,6 +9,7 @@ function Main() {
     const [orderStatus, setOrderStatus] = useState(null);
     const [isPaymentCompleted, setIsPaymentCompleted] = useState(false);
     const [hadSubscription,setHadSubscription]=useState(false);
+    const [txn,setTxn]=useState("")
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -22,6 +23,7 @@ function Main() {
         const status = params.get('status');
         const email = params.get('email');
         const txn_note=params.get('txn_note')
+        setTxn(txn_note)
 
         if (orderId && status && email) {
             checkPaymentStatus(orderId, email);
@@ -91,7 +93,7 @@ function Main() {
                 customer_email: email,
                 txn_date: txnDate,
                 txn_amount: txnAmount,
-                txn_note:txn_note
+                txn_note:txn
 
             });
             if (response.data) {

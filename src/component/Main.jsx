@@ -56,13 +56,12 @@ function Main() {
 
                 // Check subscription status
                 const hasValidSubscription = await checkSubscription(email);
-                (hasValidSubscription);
                 if(hasValidSubscription){
                     alert("You have previously buy subscription please login for vip access")
                 }
                 if (!hasValidSubscription) {
                     // Call subscription API
-                    await subscribeUser(orderId, email, data.results.txn_date, data.results.txn_amount);
+                    await subscribeUser(orderId, email, data.results.txn_date, data.results.txn_amount,data.results.txn_note);
                 }
             } else {
                 setOrderStatus(null);
@@ -86,14 +85,14 @@ function Main() {
         }
     };
 
-    const subscribeUser = async (orderId, email, txnDate, txnAmount) => {
+    const subscribeUser = async (orderId, email, txnDate, txnAmount,txn_note) => {
         try {
             const response = await axios.post('https://sattajodileak.com/payment/subscribe', {
                 order_id: orderId,
                 customer_email: email,
                 txn_date: txnDate,
                 txn_amount: txnAmount,
-                txn_note:txn
+                txn_note:txn_note
 
             });
             if (response.data) {

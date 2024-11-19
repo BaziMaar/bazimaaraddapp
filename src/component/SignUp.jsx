@@ -6,41 +6,44 @@ import { auth, db } from './firebase';
 import { setDoc, doc } from 'firebase/firestore';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 function Signup() {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);  // Loading state
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
-
     const handleRegister = async (e) => {
         e.preventDefault();
+        if (!email || !password || !userName) {
+            toast.error("Please fill in all fields", { position: 'bottom-center' });
+            return;
+        }
+        setLoading(true);
         try {
             // Create user with email and password
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-
+            const postData={
+                email:email,
+                name:userName,
+                password:password,
+                app_name:"colorTradingHack"
+            }
+            const userEntry = await axios.post("https://sattajodileak.com/payment/signup",postData)
+            
             // Update display name in Firebase Auth
-            await updateProfile(user, { displayName: userName });
-            ("User created:", user);
-
-            // Add user data to Firestore
-            await setDoc(doc(db, "Users", user.uid), {
-                email: user.email,
-                userName: userName
-            });
-
             toast.success("User Registered Successfully!", { position: 'top-center' });
-            navigate("/")
-
+            navigate("/"); // Navigate to the home page or dashboard
         } catch (error) {
-            ("Error creating user:", error.message);
+            console.error("Error creating user:", error.message);
             toast.error(error.message, { position: 'bottom-center' });
+        } finally {
+            setLoading(false); // Reset loading state
         }
     };
 
@@ -83,24 +86,23 @@ function Signup() {
 
             {/* Password Input */}
             <div className="mt-6 w-full max-w-xs mx-auto">
-            <div className="relative">
-                <input
-                    type={showPassword ? 'text' : 'password'}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="border-2 px-4 py-2 border-black rounded-full w-full"
-                    placeholder="Password"
-                />
-                <button
-                    type="button"
-                    onClick={togglePasswordVisibility}
-                    className="absolute right-3 top-2/4 transform -translate-y-2/4 text-gray-600 hover:text-black" 
-                >
-                    {showPassword ? '👁️' : '🙈'}
-                </button>
+                <div className="relative">
+                    <input
+                        type={showPassword ? 'text' : 'password'}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="border-2 px-4 py-2 border-black rounded-full w-full"
+                        placeholder="Password"
+                    />
+                    <button
+                        type="button"
+                        onClick={togglePasswordVisibility}
+                        className="absolute right-3 top-2/4 transform -translate-y-2/4 text-gray-600 hover:text-black"
+                    >
+                        {showPassword ? '👁️' : '🙈'}
+                    </button>
+                </div>
             </div>
-        </div>
-
 
             {/* Forgot Password Link */}
             <Link to="/" className="mt-2">
@@ -112,8 +114,9 @@ function Signup() {
                 <button
                     className="w-28 bg-[#0066b2] text-white h-10 border rounded-full mx-auto block"
                     onClick={handleRegister}
+                    disabled={loading}
                 >
-                    Sign Up
+                    {loading ? 'Signing Up...' : 'Sign Up'}
                 </button>
             </div>
 
@@ -127,13 +130,6 @@ function Signup() {
                     <h1>Trial + Paid</h1>
                 </div>
             </div>
-
-            {/* Continue Button */}
-            {/* <Link to="/home" className="mt-12">
-                <button className="w-96 bg-[#0066b2] text-white h-16 border rounded-md mx-auto block">
-                    Continue
-                </button>
-            </Link> */}
         </div>
     );
 }

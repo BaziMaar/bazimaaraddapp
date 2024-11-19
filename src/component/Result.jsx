@@ -61,7 +61,7 @@ function Result() {
     })
     
     const handleButtonClick = () => {
-        const randomNumber = Math.floor(Math.random() * 11); // Generates a number between 0 and 10
+        const randomNumber = Math.floor(Math.random() * 10); // Generates a number between 0 and 10
         setAnswer(randomNumber)
         setButtonClicked(true);
     };

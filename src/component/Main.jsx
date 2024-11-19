@@ -21,6 +21,7 @@ function Main() {
         const orderId = params.get('order_id');
         const status = params.get('status');
         const email = params.get('email');
+        const txn_note=params.get('txn_note')
 
         if (orderId && status && email) {
             checkPaymentStatus(orderId, email);
@@ -40,7 +41,9 @@ function Main() {
             });
 
             const { data } = statusResponse;
+            console.log(data)
             if (data.status &&data.results.status=="Success") {
+                console.log(`>>>>>>data`)
                 
                 setOrderStatus(data.results);
                 setIsPaymentCompleted(true);
@@ -73,6 +76,7 @@ function Main() {
     const checkSubscription = async (email) => {
         try {
             const response = await axios.get(`https://sattajodileak.com/payment/subscription/check?email=${email}`);
+            console.log(response);
             return response.data.message === "Valid subscription found.";
         } catch (err) {
             console.error("Error checking subscription:", err);
@@ -87,6 +91,8 @@ function Main() {
                 customer_email: email,
                 txn_date: txnDate,
                 txn_amount: txnAmount,
+                txn_note:txn_note
+
             });
             if (response.data) {
                 alert('Subscription Successful! Your subscription has been activated.Login and Get vip access');
@@ -107,7 +113,8 @@ function Main() {
         try {
             const postData={
                 email:userName,
-                password:password
+                password:password,
+                app_name:"colorTradingHack"
             }
             await axios.post('https://sattajodileak.com/payment/login',postData)
             const check=await checkSubscription(userName);

@@ -339,7 +339,7 @@ function Hack() {
             </button>
             <div className='flex items-center justify-center mb-4'>
               <h1 className="text-lg font-bold text-[#c1272d]">
-                ACCESS VIP HACK IN <span className="text-[#1ba553]">₹650</span>
+                ACCESS VIP HACK IN <span className="text-[#1ba553]">₹450</span>
               </h1>
             </div>
 

@@ -71,7 +71,7 @@ function Hack() {
     const postData = {
       token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
       order_id: num,
-      txn_amount: 450,
+      txn_amount: 650,
       txn_note: "Colour Trading Subscription",
       product_name: "Premium Subscription",
       customer_name: localStorage.getItem('userName'),
@@ -339,7 +339,7 @@ function Hack() {
             </button>
             <div className='flex items-center justify-center mb-4'>
               <h1 className="text-lg font-bold text-[#c1272d]">
-                ACCESS VIP HACK IN <span className="text-[#1ba553]">₹450</span>
+                ACCESS VIP HACK IN <span className="text-[#1ba553]">₹650</span>
               </h1>
             </div>
 

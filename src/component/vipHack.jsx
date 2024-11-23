@@ -73,6 +73,12 @@ function vipHack() {
           <img src={Bazimaar} alt="" className='h-12 w-12 rounded-full '/>
           <h1 className='px-4'>BaziMaar Hack</h1>
         </Link>
+        <Link to="/result?name=Tiranga Hack&url=https://www.tirangagames.top/#/register?invitationCode=87854589447" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
+          <div className="flex items-center">
+            <img src={img3} alt="" className="h-12 w-12" />
+            <h1 className="px-4">Tiranga Hack</h1>
+          </div>
+        </Link>
         <Link to="/result?name=91 Club Hack&url=https://91club.bet/#/register?invitationCode=87134963862" className="text-2xl bg-[#5271FF] px-1 m-2 mx-6 py-1 text-white font-bold rounded-full flex items-center justify-between">
           <div className="flex items-center">
             <img src={img4} alt="" className="h-12 w-12" />
@@ -183,17 +189,18 @@ function vipHack() {
 
         {/* Social Media Icons */}
         <div className='w-80% h-16 m-8 flex justify-center items-center'>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="flex justify-center items-center">
-              <FaWhatsapp className="w-14 h-14 text-green-500" />
+            <div className="grid grid-cols-3 gap-3">
+              <a href="https://wa.me/+917414837658" target="_blank" rel="noopener noreferrer"className="flex justify-center items-center">
+                <FaWhatsapp className="w-14 h-14 text-green-500" />
+              </a>
+            
+              <a href="https://telegram.me/ashuwithme" target="_blank" rel="noopener noreferrer"className="flex justify-center items-center border-2 border-blue-500 rounded-full">
+                <FaTelegramPlane alt="" className="w-10 h-10 text-blue-500" />
+              </a>
+              <a href="https://youtube.com/@dtboss2023" target="_blank" rel="noopener noreferrer"className="flex justify-center items-center border-2 border-red-500 rounded-full">
+                <CgYoutube alt="" className="w-10 h-10 text-red-700" />
+              </a>
             </div>
-            <div className="flex justify-center items-center border-2 border-blue-500 rounded-full">
-              <FaTelegramPlane className="w-10 h-10 text-blue-500" />
-            </div>
-            <div className="flex justify-center items-center border-2 border-red-500 rounded-full">
-              <CgYoutube className="w-10 h-10 text-red-700" />
-            </div>
-          </div>
         </div>
         {loading && <div className="text-center text-xl text-blue-500">Processing your request...</div>}
         {success && <div className="success-message text-center text-xl text-green-500">{success}</div>}

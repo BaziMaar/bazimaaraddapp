@@ -56,6 +56,10 @@ function Hack() {
   const [orderStatus, setOrderStatus] = useState(null); // For tracking payment status
   const [isPaymentCompleted, setIsPaymentCompleted] = useState(false);
   const [orderId, setOrderId] = useState(null); // Store the order ID
+  const [price,setPrice]=useState("")
+  const [waLink,setWaLink]=useState("");
+  const [tlLink,setTlLink]=useState("")
+  const [ytLinks,setYtLink]=useState("")
   const navigate=useNavigate();
   
 
@@ -71,7 +75,7 @@ function Hack() {
     const postData = {
       token: "225e3b-5843ec-ddb76d-a14f84-5c4741",
       order_id: num,
-      txn_amount: 650,
+      txn_amount: price,
       txn_note: "Colour Trading Subscription",
       product_name: "Premium Subscription",
       customer_name: localStorage.getItem('userName'),
@@ -144,14 +148,21 @@ function Hack() {
     }
   };
   useEffect(() => {
-    if (orderId && !isPaymentCompleted) {
-      (`>>>>>>>orderId is >>>>>>>${orderId}`)
-      const interval = setInterval(() => {
-        checkPaymentStatus(); // Check the status every 10 seconds
-      }, 1000);
-      return () => clearInterval(interval); // Cleanup the interval on component unmount
-    }
-  }, [orderId, isPaymentCompleted]);
+    const getLinks = async () => {
+      try {
+        const response = await axios.get('https://sattajodileak.com/payment/get_links');
+        console.log(response.data); // Log the data from the API
+        setWaLink(response.data[0].wa_link)
+        setTlLink(response.data[0].yt_link)
+        setYtLink(response.data[0].tl_link)
+        setPrice(response.data[0].price)
+      } catch (error) {
+        console.error("Error fetching links:", error.message); // Handle errors
+      }
+    };
+    getLinks()
+    
+  }, []);
 
   return (
     <div className='bg-white h-screen flex flex-col p-4 overflow-x-hidden'>

@@ -48,8 +48,26 @@ function vipHack() {
   const [paymentUrl, setPaymentUrl] = useState(null);
   const [upiLinks, setUpiLinks] = useState(null);
   const [isCongratsOpen,setIsCongratsOpen]=useState(false);
+  const [waLink,setWaLink]=useState("");
+  const [tlLink,setTlLink]=useState("")
+  const [ytLinks,setYtLink]=useState("")
 
   // Function to handle the order creation
+  useEffect(() => {
+    const getLinks = async () => {
+      try {
+        const response = await axios.get('https://sattajodileak.com/payment/get_links');
+        console.log(response.data); // Log the data from the API
+        setWaLink(response.data[0].wa_link)
+        setTlLink(response.data[0].yt_link)
+        setYtLink(response.data[0].tl_link)
+      } catch (error) {
+        console.error("Error fetching links:", error.message); // Handle errors
+      }
+    };
+    getLinks()
+    
+  }, []);
  
   const toggleModal=()=>{
     setIsModalOpen(!isModalOpen);
@@ -57,7 +75,6 @@ function vipHack() {
   const toggleCongrats=()=>{
     setIsCongratsOpen(!isCongratsOpen);
   }
-
   return (
     <>
       <div className='bg-white h-screen flex flex-col p-4 overflow-x-hidden'>
@@ -190,14 +207,14 @@ function vipHack() {
         {/* Social Media Icons */}
         <div className='w-80% h-16 m-8 flex justify-center items-center'>
             <div className="grid grid-cols-3 gap-3">
-              <a href="https://wa.me/+917414837658" target="_blank" rel="noopener noreferrer"className="flex justify-center items-center">
+              <a href={waLink} target="_blank" rel="noopener noreferrer"className="flex justify-center items-center">
                 <FaWhatsapp className="w-14 h-14 text-green-500" />
               </a>
             
-              <a href="https://telegram.me/ashuwithme" target="_blank" rel="noopener noreferrer"className="flex justify-center items-center border-2 border-blue-500 rounded-full">
+              <a href={tlLink} target="_blank" rel="noopener noreferrer"className="flex justify-center items-center border-2 border-blue-500 rounded-full">
                 <FaTelegramPlane alt="" className="w-10 h-10 text-blue-500" />
               </a>
-              <a href="https://youtube.com/@dtboss2023" target="_blank" rel="noopener noreferrer"className="flex justify-center items-center border-2 border-red-500 rounded-full">
+              <a href={ytLinks} target="_blank" rel="noopener noreferrer"className="flex justify-center items-center border-2 border-red-500 rounded-full">
                 <CgYoutube alt="" className="w-10 h-10 text-red-700" />
               </a>
             </div>

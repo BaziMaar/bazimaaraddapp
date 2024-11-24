@@ -25,8 +25,8 @@ function Home() {
         const response = await axios.get('https://sattajodileak.com/payment/get_links');
         console.log(response.data); // Log the data from the API
         setWaLink(response.data[1].wa_link)
-        setTlLink(response.data[1].yt_link)
-        setYtLink(response.data[1].tl_link)
+        setTlLink(response.data[1].tl_link)
+        setYtLink(response.data[1].yt_link)
       } catch (error) {
         console.error("Error fetching links:", error.message); // Handle errors
       }

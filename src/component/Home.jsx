@@ -14,7 +14,7 @@ import { FaTelegram, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { RiTelegramLine } from "react-icons/ri";
 import { CiYoutube } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 function Home() {
   const [waLink,setWaLink]=useState("");
   const [tlLink,setTlLink]=useState("")

@@ -49,7 +49,6 @@ function Result() {
     const location=useLocation()
     const today = new Date();
     const formattedDate = today.toISOString().slice(0, 10).replace(/-/g, '');
-    console.log(formattedDate); // Output: 20241118
     const [link,setLink]=useState('');
 
     useEffect(()=>{

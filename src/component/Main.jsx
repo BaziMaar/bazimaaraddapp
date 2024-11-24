@@ -43,9 +43,7 @@ function Main() {
             });
 
             const { data } = statusResponse;
-            console.log(data)
             if (data.status &&data.results.status=="Success") {
-                console.log(`>>>>>>data`)
                 
                 setOrderStatus(data.results);
                 setIsPaymentCompleted(true);
@@ -77,8 +75,6 @@ function Main() {
     const checkSubscription = async (email) => {
         try {
             const response = await axios.get(`https://sattajodileak.com/payment/subscription/check?email=${email}&txn_note=Colour Trading Subscription`);
-
-            console.log(response);
             return response.data.message === "Valid subscription found.";
         } catch (err) {
             console.error("Error checking subscription:", err);

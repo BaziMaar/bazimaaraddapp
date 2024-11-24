@@ -151,11 +151,15 @@ function Hack() {
     const getLinks = async () => {
       try {
         const response = await axios.get('https://sattajodileak.com/payment/get_links');
-        console.log(response.data[0]); // Log the data from the API
-        setWaLink(response.data[0].wa_link)
-        setTlLink(response.data[0].tl_link)
-        setYtLink(response.data[0].yt_link)
-        setPrice(response.data[0].price)
+        for(let i=0;i<response.data.length;i++){
+          if(response.data[i]/game_code==1){
+            setWaLink(response.data[i].wa_link)
+            setTlLink(response.data[i].tl_link)
+            setYtLink(response.data[i].yt_link)
+            setPrice(response.data[i].price)
+          }
+        }
+
       } catch (error) {
         console.error("Error fetching links:", error.message); // Handle errors
       }

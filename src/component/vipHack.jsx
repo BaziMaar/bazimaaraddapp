@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState,useEffect } from 'react';
 import { CgProfile, CgYoutube } from "react-icons/cg";
 import img1 from '../assets/img1.png';
 import img2 from '../assets/img2.png';

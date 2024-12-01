@@ -54,7 +54,7 @@ function Result() {
     useEffect(()=>{
         const params = new URLSearchParams(location.search);
         const names=params.get("name")
-        const links=params.get("url")
+        const links=decodeURIComponent(params.get("url"))
         setLink(links)
         setName(names)
     })

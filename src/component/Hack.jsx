@@ -6,6 +6,7 @@ import { CiYoutube } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
+import {ClipLoader} from 'react-spinners'
 
 import img1 from '../assets/img1.png';
 import img2 from '../assets/img2.png';
@@ -377,6 +378,22 @@ function Hack() {
           </div>
         </div>
       )}
+      <div className="relative">
+      {loading && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <ClipLoader color="#ffffff" size={50} /> {/* Loading Spinner */}
+        </div>
+      )}
+      <button
+        onClick={handlePayment}
+        disabled={loading}
+        className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
+          loading ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+      >
+        {loading ? "Processing..." : "Pay Now"}
+      </button>
+    </div>
 
     </div>
   );

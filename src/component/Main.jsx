@@ -110,7 +110,7 @@ function Main() {
 
         try {
             const postData={
-                email:userName,
+                email:userName.toLowerCase(),
                 password:password,
                 app_name:"colorTradingHack"
             }

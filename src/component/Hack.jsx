@@ -384,7 +384,7 @@ function Hack() {
           <ClipLoader color="#ffffff" size={50} /> {/* Loading Spinner */}
         </div>
       )}
-      <button
+      {/* <button
         onClick={handlePayment}
         disabled={loading}
         className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
@@ -392,7 +392,7 @@ function Hack() {
         }`}
       >
         {loading ? "Processing..." : "Pay Now"}
-      </button>
+      </button> */}
     </div>
 
     </div>
